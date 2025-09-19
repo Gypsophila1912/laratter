@@ -45,4 +45,19 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function tweets()
+    {
+        return $this->hasMany(Tweet::class);
+    }
+
+    public function likes()
+    {
+        return $this->belongsToMany(Tweet::class)->withTimestamps();
+    }
+
+      public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
